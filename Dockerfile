@@ -6,8 +6,8 @@
 #   - vLLM:         0.29.0  (latest on PyPI at build time; check it targets the CUDA 13.x base)
 #   - Ray:          2.56.1
 #
-# Build:   docker build -t vllm-ray:latest .
-# Run GPU: docker run --rm -it --gpus all --ipc=host -p 8000:8000 -p 8265:8265 vllm-ray:latest bash
+# Build:   docker build -t vllm-claude .     (or ./build.sh)
+# Run GPU: docker run --rm -it --gpus all --ipc=host -p 8000:8000 -p 8265:8265 vllm-claude bash
 
 ARG BASE_IMAGE=nvcr.io/nvidia/cuda-dl-base:26.07-cuda13.3-devel-ubuntu24.04
 

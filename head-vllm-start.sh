@@ -8,6 +8,10 @@ TIMEOUT_SECS=600
 LOG=/tmp/vllm.log
 
 
+# Stop any vLLM engine left over from a previous launch before starting a new one
+docker exec ray-head pkill -f "vllm serve" 2>/dev/null || true
+docker exec ray-head pkill -f EngineCore 2>/dev/null || true
+
 # 4. Launch vLLM in the background inside ray-head, logging to a file
 docker exec -d \
   -e HF_HUB_OFFLINE=1 \
@@ -38,5 +42,5 @@ docker exec -d \
     --limit-mm-per-prompt '{\"image\":5,\"video\":5}' \
     > $LOG 2>&1"
 
-docker exec -it ray-head tail -f /tmp/vllm.log
+docker exec ray-head tail -f /tmp/vllm.log
 echo "vLLM launched. Following $LOG (Ctrl+C stops the log, not vLLM)."

@@ -1,1 +1,1 @@
-docker rm -f vllm-claude 2>/dev/null
+docker rm -f ray-head 2>/dev/null
