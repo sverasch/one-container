@@ -26,13 +26,14 @@ docker exec -d \
   bash -c "vllm serve $MODEL \
     --host 0.0.0.0 \
     --port 8000 \
-    --max-num-seqs 256 \
+    --max-num-seqs 32 \
+    --max-model-len 32768 \
     --distributed-executor-backend ray \
     --enable-prefix-caching \
     --enable-expert-parallel \
     --tensor-parallel-size 2 \
     --moe-backend triton \
-    --gpu-memory-utilization 0.85 \
+    --gpu-memory-utilization 0.70 \
     --attention-config.indexer_kv_dtype fp8 \
     --enable-auto-tool-choice \
     --tool-call-parser qwen3_coder \
