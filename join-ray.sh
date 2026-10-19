@@ -5,6 +5,8 @@ HEAD_IP=${HEAD_IP:?HEAD_IP must be set}
 WORKER_IP=${WORKER_IP:?WORKER_IP must be set}
 RAY_PORT=6379
 
+rm -rf /tmp/ray
+
 trap 'ray stop --force >/dev/null 2>&1' EXIT
 
 ray stop --force >/dev/null 2>&1 || true

@@ -22,3 +22,4 @@ docker run -d --name vllm-worker \
   vllm-claude \
   /join.sh
 
+docker logs -f vllm-worker
