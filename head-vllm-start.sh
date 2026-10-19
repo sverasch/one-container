@@ -33,7 +33,6 @@ docker exec -d \
     --tensor-parallel-size 2 \
     --moe-backend triton \
     --gpu-memory-utilization 0.85 \
-    --kv-cache-dtype fp8 \
     --attention-config.indexer_kv_dtype fp8 \
     --enable-auto-tool-choice \
     --tool-call-parser qwen3_coder \
