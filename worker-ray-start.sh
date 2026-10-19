@@ -5,7 +5,7 @@ echo "Using worker IP $WORKER_IP"
 
 docker rm -f vllm-worker 2>/dev/null
 
-docker run -d --name vllm-worker \
+docker run -d --name ray-worker \
   --gpus all \
   --network host \
   --shm-size=16G \
@@ -22,4 +22,4 @@ docker run -d --name vllm-worker \
   vllm-claude \
   /join.sh
 
-docker logs -f vllm-worker
+docker logs -f ray-worker
